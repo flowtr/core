@@ -1,0 +1,17 @@
+{
+    "root": true,
+    "extends": ["@theoparis/eslint-config"],
+    "plugins": ["prefer-arrow"],
+    "rules": {
+        "prefer-arrow/prefer-arrow-functions": [
+            "warn",
+            {
+                "disallowPrototype": true,
+                "singleReturnOnly": true,
+                "classPropertiesAllowed": false
+            }
+        ],
+        "arrow-body-style": ["error", "as-needed"],
+        "curly": ["error", "multi"]
+    }
+}
