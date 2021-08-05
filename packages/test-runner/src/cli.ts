@@ -50,7 +50,8 @@ const runCommand = command("run")
                 console: "inherit",
                 wrapper: "commonjs",
                 require: {
-                    external: true
+                    external: true,
+                    builtin: ["*"]
                 },
                 sourceExtensions: ["js", "cjs"]
             });
