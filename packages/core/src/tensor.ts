@@ -103,12 +103,12 @@ export class Tensor<
         this.forEach((v) => (s += v));
         return s;
     }
-    set(...n: any[]) {
+    set(...n: number[]) {
         this.data.set(n);
         return this;
     }
 
-    static from<T extends number[] = number[]>(...data: number[]) {
+    static from<T extends number[] = number[]>(...data: T) {
         return new Tensor<T>({ data });
     }
 
