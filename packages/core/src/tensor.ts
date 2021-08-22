@@ -98,6 +98,12 @@ export class Tensor<
     set z(value) {
         this.data[2] = value;
     }
+    get w() {
+        return this.data[3];
+    }
+    set w(value) {
+        this.data[3] = value;
+    }
     sum() {
         let s = 0;
         this.forEach((v) => (s += v));
@@ -108,7 +114,7 @@ export class Tensor<
         return this;
     }
 
-    static from<T extends number[] = number[]>(...data: T) {
+    static from<T extends number[] = number[]>(...data: number[]) {
         return new Tensor<T>({ data });
     }
 
