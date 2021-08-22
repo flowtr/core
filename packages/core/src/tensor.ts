@@ -1,3 +1,4 @@
+import { NDArrayN } from ".";
 import { Direction } from "./direction";
 import { chunk, NDArray, TypedArray, TypedArrayFrom } from "./util";
 
@@ -30,23 +31,20 @@ export class Tensor<
         size,
         type = Float64Array // never was the quick fix, seems like a good idea
     }: {
-        data: number[];
+        data: NDArray;
         size?: S;
         type?: TypedArrayFrom;
     }) {
-        let _a: ArrayLike<number>;
         let s = size as number[];
         if (!s) {
             s = [];
-            let dim: NDArray = data;
+            let dim: NDArrayN = data;
             while (Array.isArray(dim)) {
                 s.push(dim.length);
                 dim = dim[0];
             }
         }
-        this.data = type.from(
-            (_a = data.flat(Infinity)) !== null && _a !== void 0 ? _a : data
-        ) as T;
+        this.data = type.from(data.flat(Infinity)) as T;
         if (this.data.length !== s.reduce((s, l) => s * l, 1))
             throw TypeError("Incorrect element count");
         this.size = s as S;

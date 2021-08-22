@@ -25,7 +25,8 @@ export type TypedArray =
     | Uint16Array
     | Uint32Array;
 export type Constructor<T> = new (...args: unknown[]) => T;
-export type NDArray = number | ArrayLike<number> | ArrayLike<NDArray>;
+export type NDArray = Array<number> | Array<NDArray>;
+export type NDArrayN = number | NDArray;
 export type TypedArrayFrom<T extends TypedArray = TypedArray> = {
     from(array: ArrayLike<number>): T;
 };
