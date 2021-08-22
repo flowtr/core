@@ -11,15 +11,10 @@
             "require": "./dist/index.cjs"
         }
     },
-    "size-limit": [
-        {
-            "path": "dist/index.mjs"
-        }
-    ],
     "scripts": {
         "cm": "cz",
         "build": "rollup -c",
-        "size": "size-limit",
+        "size": "bundlesize",
         "lint": "eslint src/**/*.ts --fix",
         "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run build"
     },
@@ -27,19 +22,21 @@
         "typescript",
         "node"
     ],
+    "files": [
+        "dist"
+    ],
     "author": "Theo Paris",
     "license": "MIT",
     "devDependencies": {
-        "@commitlint/cli": "^13.1.0",
-        "@commitlint/config-conventional": "^13.1.0",
         "@rollup/plugin-commonjs": "^20.0.0",
         "@rollup/plugin-node-resolve": "^13.0.4",
-        "rollup-plugin-typescript2": "^0.30.0",
-        "@types/node": "16.4.12",
+        "@types/node": "16.7.1",
+        "bundlesize2": "^0.0.30",
         "esbuild-runner": "^2.2.0",
-        "rollup": "^2.55.1",
+        "rollup": "^2.56.2",
         "rollup-plugin-dts": "^3.0.2",
-        "tslib": "^2.3.0",
+        "rollup-plugin-typescript2": "^0.30.0",
+        "tslib": "^2.3.1",
         "typescript": "4.3.5"
     }
 }

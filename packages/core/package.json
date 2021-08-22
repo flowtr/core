@@ -1,7 +1,7 @@
 {
     "name": "@flowtr/core",
     "version": "0.0.1",
-    "description": "",
+    "description": "Typed tensors and algorithms",
     "type": "module",
     "main": "./dist/index.cjs",
     "types": "./dist/index.d.ts",
@@ -11,17 +11,15 @@
             "require": "./dist/index.cjs"
         }
     },
-    "size-limit": [
-        {
-            "path": "dist/index.mjs"
-        }
+    "files": [
+        "dist"
     ],
     "scripts": {
         "cm": "cz",
         "build": "rollup -c",
-        "size": "size-limit",
+        "size": "bundlesize",
+        "test": "jest",
         "lint": "eslint src/**/*.ts --fix",
-        "coverage": "pnpm run test -- --coverage",
         "prepublishOnly": "pnpm run lint && pnpm run test && pnpm run build"
     },
     "keywords": [
@@ -31,17 +29,19 @@
     "author": "Theo Paris",
     "license": "MIT",
     "devDependencies": {
-        "@commitlint/cli": "^13.1.0",
-        "@commitlint/config-conventional": "^13.1.0",
         "@rollup/plugin-commonjs": "^20.0.0",
         "@rollup/plugin-node-resolve": "^13.0.4",
-        "rollup-plugin-typescript2": "^0.30.0",
-        "@types/node": "16.4.12",
+        "@types/jest": "^27.0.1",
+        "@types/node": "16.7.1",
+        "bundlesize2": "^0.0.30",
+        "es-jest": "^1.3.0",
         "esbuild-runner": "^2.2.0",
-        "rollup": "^2.55.1",
+        "jest": "^27.0.6",
+        "jest-extended": "^0.11.5",
+        "rollup": "^2.56.2",
         "rollup-plugin-dts": "^3.0.2",
-        "tslib": "^2.3.0",
-        "typescript": "4.3.5",
-        "@flowtr/test": "workspace:*"
+        "rollup-plugin-typescript2": "^0.30.0",
+        "tslib": "^2.3.1",
+        "typescript": "4.3.5"
     }
 }

@@ -12,6 +12,7 @@
             }
         ],
         "arrow-body-style": ["error", "as-needed"],
-        "curly": ["error", "multi"]
+        "curly": ["error", "multi"],
+        "no-shadow": "off"
     }
 }
